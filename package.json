@@ -1,0 +1,34 @@
+{
+  "name": "tripcase",
+  "version": "0.0.0",
+  "description": "Unofficial TripCase API client.",
+  "license": "MIT",
+  "repository": "madmod/tripcase",
+  "author": {
+    "name": "madmod",
+    "email": "madmodmail@gmail.com",
+    "url": "johnathanwells.com"
+  },
+  "bin": "cli.js",
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "start": "node cli.js",
+    "test": "mocha --reporter nyan tests"
+  },
+  "files": [
+    "index.js",
+    "cli.js"
+  ],
+  "keywords": [
+    "tripcase"
+  ],
+  "dependencies": {
+    "meow": "^3.3.0"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  }
+}
