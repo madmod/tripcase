@@ -32,15 +32,15 @@ var api = new tripcase({
 
 api.login(function (err, res, body) {
   if (err) throw err;
+
   console.log(body);
 
   api.getTrips(function (err, res, trips) {
     if (err) throw err;
 
-    console.log('trips', body);
+    console.log('trips', trips);
 
     api.getTripDetails(trips[0].id, function (err, res, tripDetails) {
-      console.log('gotDetails', res)
       if (err) throw err;
 
       console.log('details', tripDetails);
