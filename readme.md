@@ -1,7 +1,8 @@
 # tripcase [![Build Status](https://travis-ci.org/madmod/tripcase.svg?branch=master)](https://travis-ci.org/madmod/tripcase)
 
-> My priceless module
+An unofficial TripCase API client.
 
+This uses the internal TripCase mobile API which may change without notice.
 
 ## Install
 
@@ -13,10 +14,21 @@ $ npm install --save tripcase
 ## Usage
 
 ```js
-var tripcase = require('tripcase');
+var TripCase = require('tripcase');
 
-tripcase('unicorns');
-//=> unicorns & rainbows
+var tripcase = new TripCase({
+  email: 'user@example.com',
+  password: 'supersecret'
+});
+
+tripcase.login(function (err, res, body) {
+  if (err) throw err;
+
+  tripcase.getTrips(function (err, res, trips) {
+    if (err) throw err;
+    console.log('upcoming trips', trips);
+  });
+});
 ```
 
 
@@ -26,44 +38,11 @@ tripcase('unicorns');
 $ npm install --global tripcase
 ```
 ```
-$ tripcase --help
-
-  Usage
-    tripcase [input]
-
-  Example
-    tripcase
-    unicorns & rainbows
-
-    tripcase ponies
-    ponies & rainbows
-
-  Options
-    --foo  Lorem ipsum. Default: false
+$ tripcase username password
 ```
-
-
-## API
-
-### tripcase(input, [options])
-
-#### input
-
-*Required*  
-Type: `string`
-
-Lorem ipsum.
-
-#### options
-
-##### foo
-
-Type: `boolean`  
-Default: `false`
-
-Lorem ipsum.
 
 
 ## License
 
 MIT © [madmod](http://johnathanwells.com)
+
